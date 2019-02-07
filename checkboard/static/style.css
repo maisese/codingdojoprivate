@@ -1,0 +1,32 @@
+*{
+    margin: 0px auto;
+    padding: 0px;
+    border: 0px dotted red;
+}
+.container {
+    word-wrap: inherit;
+}
+h1, h2{
+    margin-bottom: 20px;
+}
+.boxes {
+    outline: 1px solid black;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+
+.color1{
+    background-color: red
+        }
+
+.color2{
+    background-color: black
+}
+
+.row {
+    display: block;
+    align-self: auto;
+}
+
+

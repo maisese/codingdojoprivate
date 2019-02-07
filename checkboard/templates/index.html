@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='style.css') }}">
+
+
+
+    <title>Assignment: Checkerboard</title>
+</head>
+
+<body>
+
+
+    <h1>Assignment: Checkerboard</h1>
+    <h2>Hello!  Give me a variable, and I'll increase by that variable, x2 rows. </h2>
+
+    <div class="container">
+    {% for i in range (0, showboxes) %}
+        <div class="row">
+            <div class="boxes color1"></div>
+            <div class="boxes color2"></div>
+            <div class="boxes color1"></div>
+            <div class="boxes color2"></div>
+            <div class="boxes color1"></div>
+            <div class="boxes color2"></div>
+            <div class="boxes color1"></div>
+            <div class="boxes color2"></div>
+        </div>
+        <div class="row">
+            <div class="boxes color2"></div>
+            <div class="boxes color1"></div>
+            <div class="boxes color2"></div>
+            <div class="boxes color1"></div>
+            <div class="boxes color2"></div>
+            <div class="boxes color1"></div>
+            <div class="boxes color2"></div>
+            <div class="boxes color1"></div>
+        </div>
+    </div>
+    {% endfor %}
+    
+    
+    
+    
+    
+
+
+
+</body>
+
+</html>
