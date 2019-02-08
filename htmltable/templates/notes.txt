@@ -1,0 +1,36 @@
+<table class='container'>
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Full Name</td>
+    </tr>
+    <tr>
+        {% for user in users %}
+        <td>{{ user['first_name'] }}</td>
+        {% endfor %}
+
+        {% for user in users %}
+        <td>{{ user['last_name'] }}</td>
+        {% endfor %}
+    </tr>
+</tables>
+
+
+
+<div class="container">
+        <div class="columns">
+            {% for user in users %}
+            <div class="boxes3">
+            <p>{{ user['first_name']  user['last_name'] }}</p>
+            </div>
+            {% endfor %}
+        <div>
+        <div class="columns">
+            {% for user in users %}
+            <div class="boxes3">
+            <p>{{ user['last_name'] }}</p>
+            </div>
+        {% endfor %}
+        </div>
+
+<div>
