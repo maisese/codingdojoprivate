@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style>
+
+.container{
+    margin-top: 100px;       
+}
+.head{
+     color:beige;
+     background-color: grey;
+}
+td{
+        width: 150 px;
+        outline:15px solid grey;
+        display:inline-block;
+    }
+.td1{
+        width: 250px;
+        display:inline-block;
+        outline: 1px dotted grey;
+        height: 15px;
+        padding: 10px;
+    }    
+.columns{
+        outline: 5px dotted pink;
+    }
+.inline{
+    display: inline-block;
+}
+.center {
+    display:flex;
+    justify-content: center;
+}
+.span{
+    text-align: center;
+}
+
+</style>
+    <title>All the Pets</title>
+</head>
+
+
+<body class="center">
+
+<div class="container">
+    <div class="span"><h1 >All the Pets</h1></div>
+    <div class="wrapperrow">
+        <div class="head inline td1">ID</div>
+        <div class="head inline td1">NAME</div>
+        <div class="head inline td1">TYPE</div>
+    </div>
+    {% for pet in allpets %}
+    <div class="wrapperrow">
+            <div class="td1">{{ pet['id'] }}</div>
+            <div class="td1">{{ pet['name'] }}</div>
+            <div class="td1">{{ pet['type'] }}</div>
+    {% endfor %}
+    </div>
+    <hr>
+    <div class="span"><h2>Add a Pet</h2>
+        <form action="/newpet" method="POST">
+            <p>Name: <input type="text" name="pname"></p>
+            <p>Type: <input type="text" name="ptype"></p>
+            <input type="submit" value="Add Pet">
+        </form>
+    </div>
+</div>
+
+
+    <!-- <table class='container'>
+    <tr>
+        <td class="header">ID</td>
+        <td class="header">Name</td>
+       <td class="header">Type</td>
+    </tr>
+    {% for pet in allpets %}
+    <tr>
+        <td>{{ pet['id'] }}</td>
+        <td>{{ pet['name'] }}</td>
+        <td>{{ pet['type'] }}</td>
+    </tr>
+     {% endfor %}
+</tables> -->
+
+
+
+</body>
+</html> 
