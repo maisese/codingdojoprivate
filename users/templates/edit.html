@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>MySql - Users Assignment</title>
+    <style>
+    .container{
+        margin-top: 20px;
+    }
+    </style>
+</head>
+
+<body>
+<div class="container" col-'6'>
+
+<h1>Edit User {{user[0].id}}</h1>
+<p></p>
+<form action="/update/{{user[0].id}}" method="POST">
+    
+    <p>First Name: <input type="text" name="userfullname" placeholder="{{user[0].full_name}}"></p>
+    
+    <p>Email: <input type="text" name="useremail" placeholder="{{user[0].email}}"></p>
+
+    <p>Description: <input type="text" name="userdescription" placeholder="{{user[0].description}}"></p>
+    
+    <input type="submit" value="Update">
+</form>
+
+<!-- <a href="show/{{ user['id'] }}">Show User</a> -->
+</div>
+</body>
+
+</html>
