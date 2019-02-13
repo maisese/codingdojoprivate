@@ -1,0 +1,37 @@
+if is_valid:
+        flash("Email is valid and added to the database! Thank you.")
+        return redirect("/success") 
+
+
+
+{% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+    {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}            <!-- loop through the messages -->
+            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+{% with messages = get_flashed_messages() %} 
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{<h1>message</h1>}}</p>                
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+{% for email in emails %}
+    <div class="wrapperrow">
+            <div class="td1">{{email[(submissionemail| length) -1].email}}</div>
+            <div class="td1">{{ email['created_at'] }}</div>
+            
+    {% endfor %}
+
+
+{% for email in emailz %}
+    <tr>
+      <td>{{ email ['email'] }}</td>
+      <td>{{ email ['created_at'] }}</td>
+    </tr>
+  {% endfor %}
