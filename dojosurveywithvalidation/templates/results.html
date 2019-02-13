@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>MySql - Dojo Survey Results</title>
+    <style>
+    .container{
+        margin-top: 20px;
+        padding: 20px;
+    }
+    .nodecor {
+        text-decoration: none;
+        color: white;
+    }
+    </style>
+</head>
+
+<body>
+<div class="container" col-'6'>
+
+<h1> Submitted Information: </h1>
+    
+    <p>Full Name: {{submission[(submission| length) -1].fullname}}</p>
+    <p>Dojo Location: {{submission[(submission| length)-1].dojolocation}}</p>
+    <p>Favorite Language: {{submission[(submission| length)-1].favlanguage}}</p>
+    <p>Comment: {{submission[(submission| length)-1].comment}}</p>
+
+    <p></p>
+.
+    <button class="btn btn-primary alignright"><a href="/" class="nodecor">Go Back</a></button>
+</div>
+
+</body>
+
+</html>

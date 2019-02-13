@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <title>Dojo Survey - with Validation</title>
+    <style>
+        h1 {
+            text-align: center
+        }
+
+        .container {
+            display: flex align-self: auto;
+            
+        }
+        .inline {
+            display: inline-block;
+        
+        }
+        .row {
+            padding: 10px;
+        }
+        .alignright{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+  <div class="row"><h1>Dojo Survey</h1></div>
+<form action="/addsubmission" method="POST">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Full Name</label>
+    <div class="col-sm-4">
+    
+      <input type="text" class="form-control" placeholder="Full Name" name="username" >
+      {% with messages = get_flashed_messages() %}     
+    {% if messages %}                            
+        {% for message in messages %}            
+            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <label for='Dojo Location'>Dojo Location:</label>
+    <div class="col-sm-6">
+    <select class="form-control" name='dojolocation'>
+      <option>San Jose</option>
+      <option>Seattle</option>
+      <option>Emeryville</option>
+      <option>Tysons Corner</option>
+      <option>Burbank</option>
+    </select>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label for='Favorite Language'>Favorite Language:</label>
+    <div class="col-sm-6">
+    <select class="form-control"  name="favoritelan">
+      <option>Python</option>
+      <option>HTML/JSS</option>
+      <option>Javascript</option>
+      <option>Java</option>
+    </select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="textarea">Comment (optional)</label>
+    <textarea class="form-control" rows="3" class="col-sm-5" name="comment"></textarea>
+    </div>
+    <p></p>
+    <input type="submit" value="submit">
+  </div>
+</form>
+
+
+</div>
+
+</body>
+
+</html>
