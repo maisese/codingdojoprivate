@@ -1,0 +1,51 @@
+# @app.route('/***sucesspage***')
+# def sucess():
+#     mysql = connectToMySQL("***insert database here***")
+#     query = "SELECT * FROM ***databasetablename***;"
+#     ****insertavariablenamehere**** = mysql.query_db(query)
+#     print(****insertavariablenamehere****)
+#     return render_template('/success.html', ***insertjingapassMULTIPLEnamehere***=****insertavariablenamehere****)
+
+
+    if EMAIL_REGEX.match(request.form['email']):
+        flash("Email is valid and added to the database! Thank you.")
+        return redirect("/success")         flash("Email is valid and added to the database! Thank you.")
+
+        # session **remove as needed**, also provide security key, will normally go with flash, app.secret_key = "jazzy11" [place after app = flask]
+
+
+                    # if we get True after checking the password, we may put the user id in session
+            # session['userid'] = result[0]['id']
+            # never render on a post, always redirect!
+            return redirect('/success')
+    # if we didn't find anything in the database by searching by username or if the passwords don't match,
+    # flash an error message and redirect back to a safe route
+
+@app.route('/success')
+def sucess():
+    mysql = connectToMySQL("loginregistration")
+    query = "SELECT * FROM users;"
+    successUSERS = mysql.query_db(query)
+    print(successUSERS)
+    return render_template('/success.html', sucessfulUsers=successUSERS)
+
+    # Well, Dont rely on Session.abandon. Rather than doing this you use a Session Variable and check if session variable is available in any request. 
+
+# I mean : 
+
+# # Say when someone logs in you set 
+# # Session["IsLoggedIn"] = true;
+
+# # Now for any request, check for IsLoggedIn. 
+
+# # When the user logs out, reset the value IsLoggedIn to false and set other variables to null. 
+
+# # In this way you will be absolutely sure that your user does not connect to the previous session even though Session.Abandon does not work.
+
+@app.route('/success')
+def sucess():
+    mysql = connectToMySQL("loginregistration")
+    query = "SELECT * FROM users;"
+    successUSERS = mysql.query_db(query)
+    print(successUSERS)
+    return render_template('/success.html', sucessfulUsers=successUSERS)

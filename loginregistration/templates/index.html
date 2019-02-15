@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+ <style>
+h1 {
+     text-align: center;
+}
+.container {
+    display: flex align-self: auto;
+    margin-top: 20px;
+    padding: 50px;
+}
+.inline {
+     display: inline-block;
+     vertical-align: top;
+     
+ }
+.row {
+    padding: 10px;
+}
+.alignright{
+    float: right;
+}
+h2 {
+    text-align: center;
+    background-color: red;
+}
+.flashmessage{
+	color: red;
+	text-size: 10px;
+	text-indent: 15px;
+}
+</style>
+    <title>Assignment: Login and Registration </title>
+ 
+</head>
+<body>
+
+<div class="container">
+	<div class="container">
+	    <h1 class="text-center" id="title">Login and Registration</h2>
+ 		<hr>
+		<div class="row">
+			<div class="col-md-5 inline">
+ 			    <form role="form" method="POST" action="validatRegistration">
+				<fieldset>							
+				<p class="text-uppercase pull-center"> SIGN UP.</p>	
+                    
+                    <div class="form-group">
+                    <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name">
+					
+					{% with messages = get_flashed_messages(category_filter=['firstname']) %} 
+    					{% if messages %}
+        					{% for message in messages %}
+           					 <p class="flashmessage">{{message}}</p>                
+        				{% endfor %}
+    					{% endif %}
+					{% endwith %}
+                    </div>
+
+                    <div class="form-group">
+                    <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name">
+					{% with messages = get_flashed_messages(category_filter=['lastname']) %} 
+    					{% if messages %}
+        					{% for message in messages %}
+           					 <p class="flashmessage">{{message}}</p>    
+        				{% endfor %}
+    					{% endif %}
+					{% endwith %}
+                    </div>
+
+                    <div class="form-group">
+						<input type="text" name="email" id="email" class="form-control input-lg" placeholder="Email Address">
+						{% with messages = get_flashed_messages(category_filter=['email']) %} 
+    					{% if messages %}
+        					{% for message in messages %}
+           					 <p class="flashmessage">{{message}}</p>    
+        				{% endfor %}
+    					{% endif %}
+					{% endwith %}
+					</div>
+
+					<div class="form-group">
+						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+						{% with messages = get_flashed_messages(category_filter=['password']) %} 
+    					{% if messages %}
+        					{% for message in messages %}
+           					 <p class="flashmessage">{{message}}</p>    
+        				{% endfor %}
+    					{% endif %}
+					{% endwith %}
+					</div>
+								
+                    <div class="form-group">
+						<input type="password" name="password2" id="password2" class="form-control input-lg" placeholder="Re-enter your password">
+						{% with messages = get_flashed_messages(category_filter=['password2']) %} 
+    					{% if messages %}
+        					{% for message in messages %}
+           					 <p class="flashmessage">{{message}}</p>    
+        				{% endfor %}
+    					{% endif %}
+					{% endwith %}
+					</div>
+					
+					
+                    <div>
+ 		            <input type="submit" class="btn btn-lg btn-primary" value="Register">
+ 		            </div>
+
+		        </fieldset>
+	            </form>
+            </div>
+
+            <div class="col-md-2 inline">
+					<!-------null------>
+				</div>
+				
+				<div class="col-md-5 inline">
+ 				 		<form role="form" action="login" method="POST">
+						<fieldset>							
+							<p class="text-uppercase"> Login using your account: </p>	
+ 								
+							<div class="form-group">
+								<input type="text" name="email" id="email" class="form-control input-lg" placeholder="Login Email">
+							</div>
+							<div class="form-group">
+								<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Login Password">
+								{% with messages = get_flashed_messages(category_filter=['login']) %}
+    								{% if messages %}
+        						{% for message in messages %}
+           					 	<p class="flashmessage">{{message}}</p>    
+        						{% endfor %}
+    							{% endif %}
+								{% endwith %}
+
+								
+							</div>
+							<div>
+								<input type="submit" class="btn btn-md btn-secondary" value="Sign In">
+
+								{% with messages = get_flashed_messages(category_filter=['logout']) %}
+    								{% if messages %}
+        						{% for message in messages %}
+           					 	<p class="flashmessage">{{message}}</p>    
+        						{% endfor %}
+    							{% endif %}
+								{% endwith %}
+							</div>
+								 
+ 						</fieldset>
+				        </form>	
+				    </div>
+			</div>
+	    </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

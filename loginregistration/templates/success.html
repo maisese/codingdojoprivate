@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+ <style>
+h1 {
+     text-align: center;
+}
+.container {
+    display: flex align-self: auto;
+    margin-top: 20px;
+    padding: 50px;
+}
+.inline {
+     display: inline-block;
+     vertical-align: top;
+     
+ }
+.row {
+    padding: 10px;
+}
+.alignright{
+    float: right;
+}
+h2 {
+    text-align: center;
+    background-color: red;
+}
+.flashmessage{
+	color: red;
+	text-size: 10px;
+}
+.aligncenter{
+    text-align: center;
+}
+</style>
+    <title>Assignment: Login and Registration </title>
+ 
+</head>
+<body>
+
+<div class="container">
+      
+    <h1 class="text-center" id="title">Welcome, you're logged in, {{sucessfulUsers[0].first_name}}</h1>
+    
+    {% with messages = get_flashed_messages() %} 
+    					{% if messages %}
+        					{% for message in messages %}
+           					 <p class="flashmessage aligncenter">{{message}}</p>                
+        				{% endfor %}
+    					{% endif %}
+					{% endwith %}
+
+ 	<hr>
+     <a href="/sign_out">Log Out</a>
+	
+
+ </div>
+</body>
+</html>
