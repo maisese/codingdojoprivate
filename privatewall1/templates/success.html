@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+ <style>
+h1 {
+     text-align: center;
+}
+.container {
+    display: flex align-self: auto;
+    margin-top: 20px;
+}
+.inline {
+     display: inline-block;
+     vertical-align: top;
+     
+ }
+.row {
+    padding: 10px;
+    margin: 5px;
+}
+.alignright{
+    float: right;
+}
+h2 {
+    
+}
+.flashmessage{
+	color: red;
+	text-size: 10px;
+}
+.aligncenter{
+    text-align: center;
+}
+h3 {
+    text-decoration: underline;
+}
+.indent{
+    text-indent: 15px;
+}
+.verticalmiddle{
+    margin: auto;
+}
+</style>
+    <title>Assignment: Private Wall </title>
+ 
+</head>
+<body>
+
+<div class="container">
+    <div class="inline"><h2> Coding Dojo - Private Wall</h2></div>
+    <div class="inline alignright">Welcome,    
+    {{FirstNAMEpass[0].first_name}} - <a href="/sign_out">Log Out</a></div>
+    <hr>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col -6">
+      <h3>  {{queryUsers | length}} Message(s) for You</p>	</h3>
+             
+             {% for user in queryUsers %}         
+            <div class="form-group ">
+            {{user.sender}} said at
+            {{ user.created_at | friendly_time }}
+            
+             <p class='indent'> {{user.message}}                
+                <a class="alignright" href="delete/{{user.messages_id}}"> 
+                
+                <img src="https://cdn3.iconfinder.com/data/icons/line/36/trash_can-512.png" height="15px"></a>
+                 </p>
+                <hr>
+            </div>
+            {% endfor %}
+    </div>
+
+
+
+    <div class="col-6">
+        <h3>Send Messages</h3>
+        <p></p>
+        You have sent {{countSENT | length}} messages so far
+        <p></p>
+            
+        {% for friend in friendsBASE %}
+        <form class="d-flex" action="send" method='POST'>
+                <div class="mx-1">
+                     {{friend.first_name}}                 </div>
+                <div class="mx-1 w-100" width='100%'>
+                    <input type="hidden" name="toid" value="{{friend.id}}">
+                    <input type="text" class="form-control" id="message" name="message" placeholder="Enter your message">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Send</button>
+                </form>
+        <hr>
+        {% endfor %}
+    </div>
+    </div>
+  </div>
+</div>
+
+
+      
+    
+	
+
+ </div>
+</body>
+</html>

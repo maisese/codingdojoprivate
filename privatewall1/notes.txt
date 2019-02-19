@@ -1,0 +1,184 @@
+Users that login are reciepients
+reciepient will be the self joins
+
+{{queryUsers[0].reciever}}
+
+
+ {% for user in queryUsers %}         
+            <div class="form-group">
+            {{user.sender}} said 
+            
+             <p> </p>
+                {{user.message}}       
+                <a href='delete/'> Delete </a>
+            </div>
+            {% endfor %}
+
+ <a href='delete/{{ message['id'] }}'> Delete </a>
+
+One columns
+    <div class="col-1">
+      One of three columns
+    </div>
+
+Original:
+@app.route('/success')
+def success():
+    id = session['id']
+    mysql = connectToMySQL("privatewall")
+    query = "SELECT * FROM users WHERE id= %(id)s;"
+    data = {
+        "id" : id
+    }
+    successUSERS = mysql.query_db(query, data)
+    print(successUSERS)
+    flash("You are logged in.")
+    return render_template('/success.html', sucessfulUsers=successUSERS)
+    {{sucessfulUsers[0].reciever}}
+{{sucessfulUsers[0]| length}}
+
+  {{sucessfulUsers[0].first_name}}
+
+  {{ (("NOW()" | to_datetime) -  ("messages.created_at" | to_datetime)).seconds }}
+
+  {{ (("NOW()" | to_datetime) - ("user.created_at" | to_datetime)).days  }}
+
+@app.route('/show_messages')
+def showmessages():
+    id = session['id']
+    query = "SELECT message, senders.id as senderid, senders.first_name as sender, users.first_name as reciever, messages.created_at, recipient_id from messages JOIN users on users.id = messages.recipient_id JOIN users as senders on senders.id = messages.users_id WHERE recipient_id =" + id
+    data = {
+        "id" : id
+    }
+    
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <p class="text-uppercase pull-center"> [COUNTER] Message(s) for You</p>	
+                        
+            <div class="form-group">
+            JINJAFriend said (time)
+                Message here      
+                <a href='delete/'> Delete </a>
+            </div>
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+        <div class="form-row">
+          <p class="text-uppercase pull-center">Send Messages</p>	
+            You have sent Jinga12 messages so far
+            
+            
+            <div class="form-group col-md-6">
+                    <form class="form-inline form-control" action="/action_page.php">
+                    <div class="form-group">
+                        <label for="email">Email address:</label>  
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+            </div>
+            </div>
+              
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+        <div class="col-5 inline">
+            <p class="text-uppercase pull-center"> [COUNTER] Message(s) for You</p>	
+                        
+            <div class="form-group">
+            JINJAFriend said (time)
+                Message here      
+                <a href='delete/'> Delete </a>
+            </div>
+                
+        </div>
+
+        <div class="col-1 inline">
+			<!-------null------>
+		</div>
+				
+		<div class="col-6 inline">
+            <p class="text-uppercase pull-center">Send Messages</p>	
+            You have sent Jinga12 messages so far
+            
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                    <form class="form-inline form-control" action="/action_page.php">
+                    <div class="form-group">
+                        <label for="email">Email address:</label>  
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+              
+           
+           
+            
+		</div>
+    </div>
+</div>
+
+
+# @app.route('/***sucesspage***')
+# def sucess():
+#     mysql = connectToMySQL("***insert database here***")
+#     query = "SELECT * FROM ***databasetablename***;"
+#     ****insertavariablenamehere**** = mysql.query_db(query)
+#     print(****insertavariablenamehere****)
+#     return render_template('/success.html', ***insertjingapassMULTIPLEnamehere***=****insertavariablenamehere****)
+
+
+    if EMAIL_REGEX.match(request.form['email']):
+        flash("Email is valid and added to the database! Thank you.")
+        return redirect("/success")         flash("Email is valid and added to the database! Thank you.")
+
+        # session **remove as needed**, also provide security key, will normally go with flash, app.secret_key = "jazzy11" [place after app = flask]
+
+
+                    # if we get True after checking the password, we may put the user id in session
+            # session['userid'] = result[0]['id']
+            # never render on a post, always redirect!
+            return redirect('/success')
+    # if we didn't find anything in the database by searching by username or if the passwords don't match,
+    # flash an error message and redirect back to a safe route
+
+@app.route('/success')
+def sucess():
+    mysql = connectToMySQL("loginregistration")
+    query = "SELECT * FROM users;"
+    successUSERS = mysql.query_db(query)
+    print(successUSERS)
+    return render_template('/success.html', sucessfulUsers=successUSERS)
+
+    # Well, Dont rely on Session.abandon. Rather than doing this you use a Session Variable and check if session variable is available in any request. 
+
+# I mean : 
+
+# # Say when someone logs in you set 
+# # Session["IsLoggedIn"] = true;
+
+# # Now for any request, check for IsLoggedIn. 
+
+# # When the user logs out, reset the value IsLoggedIn to false and set other variables to null. 
+
+# # In this way you will be absolutely sure that your user does not connect to the previous session even though Session.Abandon does not work.
+
+@app.route('/success')
+def sucess():
+    mysql = connectToMySQL("loginregistration")
+    query = "SELECT * FROM users;"
+    successUSERS = mysql.query_db(query)
+    print(successUSERS)
+    return render_template('/success.html', sucessfulUsers=successUSERS)
+
+
+    <h2 class="text-center" id="title">Welcome, you're logged in, {{sucessfulUsers[0].first_name}}</h1>
