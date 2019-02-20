@@ -1,0 +1,27 @@
+Show page:
+<div class="container col-6">
+Go back
+<h1>Updates for TV Show {{tvshows[0].id}}</h1>
+    <div class="container">
+        <div class="form-group">
+        <label >Title: </label> {{tvshows[0].title}}
+        </div>
+        
+        <div class="form-group" class="inline">
+        <label>Network</label> {{tvshows[0].network}}
+        <label>Release Date</label> {{tvshows[0].release_date}}
+        </div>
+
+        <div class="form-group">
+        <label >Description</label> {{tvshows[0].description}}
+        </div>
+   
+        <div class="form-group">
+        <label >Last Updated</label> {{tvshows[0].updated_at}}
+        </div>
+
+    <p></p>
+    <a href="edit/{{tvshows[0].id}}">Edit</a> | <a href="delete/{{tvshows[0].id}}">Delete</a>
+    </div>
+
+</div>

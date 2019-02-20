@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+
+    <style>
+        h1 {
+            text-align: center
+        }
+
+        .container {
+            display: flex align-self: auto;
+            margin-top: 50px;
+        }
+        .inline {
+            display: inline-block;
+        
+        }
+        .row {
+            padding: 10px;
+        }
+        .alignright{
+            float: right;
+        }
+    </style>
+    <title></title>
+   
+</head>
+<body>
+
+<div class="container col-6">
+<a href="/">Home</a>
+<a href="javascript:history.back()" class="alignright">Go Back</a>
+
+<h1>Updates for TV Show {{tvshows[0].id}}</h1>
+    <div class="container">
+        <div class="form-group">
+        <label >Title: </label> {{tvshows[0].title}}
+        </div>
+        
+        <div class="row">
+            <div class="col-3">
+            <label>Network:</label> {{tvshows[0].network}}
+            </div>
+
+            <div class="col-3">
+            <label>Release Date:</label> {{tvshows[0].release_date}}
+            </div>
+        </div>
+
+            <div class="form-group">
+            <label >Description:</label> {{tvshows[0].description}}
+            </div>
+    
+        <div class="form-group">
+        <label >Last Updated</label> {{tvshows[0].updated_at}}
+        </div>
+
+    <p></p>
+    <a href="/edit/{{tvshows[0].id}}">Edit</a> | <a href="/delete/{{tvshows[0].id}}">Delete</a>
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+
+    <style>
+        h1 {
+            text-align: center
+        }
+
+        .container {
+            display: flex align-self: auto;
+            margin-top: 50px;            
+        }
+        .inline {
+            display: inline-block;
+        
+        }
+        .row {
+            padding: 10px;
+        }
+        .alignright{
+            float: right;
+        }
+    </style>
+    <title></title>
+   
+</head>
+<body>
+<div class="container">
+<a href="javascript:history.back()" class="alignright">Go Back</a>
+
+<h1>All TV Shows</h1>
+<p></p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">TITLE</th>
+      <th scope="col">NETWORK</th>
+      <th scope="col">RELEASE DATE</th>
+      <th scope="col">ACTIONS</th>
+      <th scope="col">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tvshows in alltheshows %}
+    <tr>
+      <td>{{ tvshows['id'] }}</td>
+      <td>{{ tvshows['title'] }}</td>
+      <td>{{ tvshows['network'] }} </td>
+      <td>{{ tvshows['release_date'] }}</td>
+      <td> <a href="show/{{ tvshows['id'] }}">Show</a> |<a href="edit/{{ tvshows['id'] }}"> Edit</a> | <a href='delete/{{ tvshows['id'] }}'> Delete </a></td>
+      <td>{{ tvshows['description'] }}</td>
+    </tr>
+    {% endfor %}
+    
+   </tbody>
+</table>
+
+<a href="/new">Add a Show</a>
+</div>
+
+</body>
+
+</html>
