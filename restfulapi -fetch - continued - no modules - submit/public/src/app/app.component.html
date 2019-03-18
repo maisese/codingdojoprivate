@@ -1,0 +1,42 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to Mai's Restful API Assignment {{ title }} - Continued!!
+  </h1>
+  
+</div>
+
+<div class="container center"> 
+
+  <h1>All the Tasks</h1> 
+
+    <p align="center" *ngFor="let task of tasks.tasks">Title: {{task.title}} | Description {{task.description}}</p>
+    <hr>
+
+  <h1>Below is the Latest Task</h1> 
+  <h3>Title: {{lastTask.title}} | Description {{lastTask.description}}</h3>
+
+<!-- <table class="table tablecenter">
+  <thead>
+    <tr class="center">
+      <th scope="col">Task Title</th>
+      <th scope="col">Description</th>
+   </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks.tasks">
+      <th scope="row"></th>
+      <td>{{task.title}}</td>
+      <td>{{task.description}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+<h2> Test Form </h2>
+<form action>
+</form> -->
+
+</div>
+
+
