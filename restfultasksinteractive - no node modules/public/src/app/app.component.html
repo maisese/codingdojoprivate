@@ -1,0 +1,36 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to Mai's Restful API Assignment {{ title }} - Continued!!
+  </h1>
+
+</div>
+
+<div class="container center">
+
+  <button (click)="jellyTrue()" class="center">Click me to get Task Titles!</button>
+  <h1>All the Tasks</h1>
+  <div *ngIf="jelly">
+    <!-- if variable jelly is truthy -->
+    <div *ngFor="let nuts of peanutbutter.tasks" value="false">Title: {{nuts.title}} | <button (click)="showdesc(nuts)" class="center">Click me to get the description!</button></div>
+  </div>
+  <hr>
+
+  
+  <h1>All the Desc(s)</h1>
+  <div *ngIf="showtaskdesc"> {{showtaskdesc.description}}</div>
+
+  
+  <!-- <div *ngIf="bananas">
+    <div *ngFor="let nuts of peanutbutter.tasks" value="false">Description {{nuts.description}}</div>
+  </div> -->
+
+
+
+  <h1>Below is the Latest Task</h1>
+  <h3>Title: {{lastTask.title}} | Description {{lastTask.description}}</h3>
+
+
+
+
+</div>
