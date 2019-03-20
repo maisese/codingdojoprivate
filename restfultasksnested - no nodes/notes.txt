@@ -1,0 +1,26 @@
+<!--   
+  <app-description></app-description>
+  <div *ngIf="showtaskdesc"> {{showtaskdesc.description}}</div>
+
+  <h1>All the Desc(s)</h1>
+  <!-- <div *ngIf="bananas">
+      <div *ngFor="let nuts of peanutbutter.tasks" value="false">Description {{nuts.description}}</div>
+    </div> -->
+
+
+
+  <h1>Below is the Latest Task</h1>
+  <h3>Title: {{lastTask.title}} | Description {{lastTask.description}}</h3>
+</div> -->
+
+
+<div *ngFor="let nuts of listOfTasks">
+
+    Title: {{nuts.title}} | 
+
+    <button (click)="showdesc(nuts)" class="center">Click me to get the description!</button> 
+
+</div>
+
+  </div>
+  <app-title *ngIf="jelly" [listOfTasks]="peanutbutter.tasks"></
