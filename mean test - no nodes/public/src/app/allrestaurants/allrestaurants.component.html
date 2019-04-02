@@ -1,0 +1,23 @@
+<div class="container">
+  <button class="float-right btn btn-dark" [routerLink]="['/new']">New</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Restaurant Name</th>
+        <th scope="col">Cusine</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rest of allrestaurants">
+        <td>{{rest.name}}</td>
+        <td>{{rest.cuisine}}</td>
+        <td><button>Read Reviews</button> | <button [routerLink]="['/'+ rest._id+ '/edit']">Update</button> | <button (click)="deleteCake(rest)">Delete</button>
+        <td>
+      </tr>
+    </tbody>
+
+  </table>
+
+
+</div>
